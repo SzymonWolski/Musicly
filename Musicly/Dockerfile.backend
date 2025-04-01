@@ -1,0 +1,19 @@
+# Dockerfile
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Kopiowanie package.json i instalacja zależności
+#COPY package*.json ./
+
+
+# Kopiowanie pozostałych plików aplikacji
+COPY backend /app/
+
+RUN npm install
+
+# Ekspozycja portu aplikacji
+EXPOSE 3000
+
+# Uruchomienie aplikacji
+CMD ["npm", "start"]

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: musicly
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    #entrypoint: ["sh", "./wait-for-it.sh", "db:3306", "--", "npm", "start"]
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: example
+      DB_NAME: musicly
+
+volumes:
+  db-data:

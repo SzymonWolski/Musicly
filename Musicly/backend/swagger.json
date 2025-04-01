@@ -1,0 +1,22 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Musicly API",
+      "description": "API for Musicly application"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "paths": {
+      "/songs": {
+        "get": { "summary": "Get all songs", "responses": { "200": { "description": "successful" } } },
+        "post": { "summary": "Create a song", "responses": { "200": { "description": "created" } } }
+      },
+      "/songs/{id}": {
+        "get": { "summary": "Get song by ID", "responses": { "200": { "description": "successful" } } },
+        "put": { "summary": "Update a song", "responses": { "200": { "description": "updated" } } },
+        "delete": { "summary": "Delete a song", "responses": { "200": { "description": "deleted" } } }
+      }
+    }
+  }
+  
